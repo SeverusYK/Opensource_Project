@@ -1,0 +1,17 @@
+10/17 목
+
+명령 프롬프트에서 C:\Users\User\AppData\Roaming\Python\Python37\Scripts 이 경로로 들어가서 
+python -m pip install opencv-python 명령어를 쳐서 opencv 라이브러리를 다운받았는데, 이상하게 다운받은 파일이 생성되지 않았다.
+
+팀원에게 물어보고 인터넷을 찾아보면서 문제를 해결하려고 노력하다가 팀원이 파일 저장이 아나콘다 밑에 되있나 확인해보라고해서
+C:\ProgramData\Anaconda3\Lib\site-packages 이 경로로 들어가서 확인해 보았더니 내가 다운한 라이브러리가 있었다. 
+
+내가 필요한 라이브러리들을 복사해서 C:\Users\User\AppData\Roaming\Python\Python37\Scripts 여기에 붙여 넣었는데도 실행이 되지 않았다.
+
+내pc에서 오른쪽마우스를 눌러서 속성에 들어가고 고급시스템설정-환경변수-시스템변수에서 Path찾아서 클릭 편집 - 새로만들기 C:\Users\User\AppData\Roaming\Python\Python37\Scripts입력-위로이동클릭-맨위로배치를 하여서 파일 다운할때 저장경로를 바꾸었다. 
+
+알고보니 파이썬 버전도 안맞아서 3.8.0 버전에서 3.7.4로 다운그레이드를 시켜서 다시 다운로드를 했다. 
+
+python -m pip install --upgrade pip 를 쳤는데 에러가 나서 에러사항을 읽어보니 --user 옵션을 추가하라고 해서
+python -m pip install --user --upgrade pip 를 쳐서 pip 버전을 업그레이드 하고 opencv를 설치하니 파이썬 쉘에서 
+무난히 import cv2가 작동하였다. 
